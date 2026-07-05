@@ -114,6 +114,22 @@ To enable this:
 2. Add the secrets listed above in the repository's Settings → Secrets → Actions.
 3. Push to `main` — the workflow will execute automatically.
 
+Quick Windows workaround (no execution policy change)
+
+If PowerShell blocks `npm` because of execution policy, use the included `run-windows.bat` which calls the Node `.cmd` executables directly. From File Explorer double-click `run-windows.bat`, or run from Command Prompt:
+
+```
+run-windows.bat
+```
+
+From PowerShell without changing your execution policy, run:
+
+```
+powershell -NoProfile -ExecutionPolicy Bypass -Command .\run-windows.bat
+```
+
+The `run-windows.bat` will run `npm ci`, generate `supabase-config.js`, run the migration script, and call `vercel --prod` using the `VERCEL_TOKEN` environment variable.
+
 Option B — Deploy via Vercel CLI (recommended for one-off deploys):
 
 1) Install Vercel CLI:
