@@ -9,6 +9,16 @@ const LS = {
   remove: (key) => localStorage.removeItem(key),
 };
 
+// Initialize Supabase client if config available (supabase-config.js should set window.SUPABASE_URL and window.SUPABASE_ANON_KEY)
+try {
+  if (window.SUPABASE_URL && window.SUPABASE_ANON_KEY && typeof supabase !== 'undefined') {
+    window.supabaseClient = supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+    console.log('Supabase client initialized');
+  }
+} catch (err) {
+  console.warn('Supabase init failed', err);
+}
+
 const escapeHtml = (str) => {
   if (str === null || str === undefined) return '';
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
@@ -978,25 +988,83 @@ const getCurrentRoomCode = () => {
 };
 
 // Helper to get/initialize room data
+const sbUpsertRoom = async (code, data) => {
+  if (!window.supabaseClient) return null;
+  try {
+    // Expect a table 'rooms' with columns: code (text primary key), data (jsonb)
+    const payload = { code: String(code), data };
+    const { error } = await window.supabaseClient.from('rooms').upsert(payload, { returning: 'minimal' });
+    if (error) throw error;
+    return true;
+  } catch (err) {
+    console.warn('sbUpsertRoom failed', err);
+    return null;
+  }
+};
+
+const sbFetchRoom = async (code) => {
+  if (!window.supabaseClient) return null;
+  try {
+    const { data, error } = await window.supabaseClient.from('rooms').select('data').eq('code', String(code)).single();
+    if (error) throw error;
+    return data?.data || null;
+  } catch (err) {
+    console.warn('sbFetchRoom failed', err);
+    return null;
+  }
+};
+
+// Helper to get/initialize room data (reads from localStorage synchronously, then attempts background sync from Supabase)
 const getRoomData = (code) => {
   if (!code) return null;
   const rooms = LS.get('rooms') || {};
-  if (!rooms[code]) return null;
-  
-  // Ensure room has all required fields
-  const room = rooms[code];
-  if (!Array.isArray(room.joinedStudents)) room.joinedStudents = [];
-  if (!Array.isArray(room.chatMessages)) room.chatMessages = [];
-  if (typeof room.active !== 'boolean') room.active = true;
-  
-  return room;
+  const local = rooms[code] || null;
+
+  if (local) {
+    // Ensure fields exist
+    const room = local;
+    if (!Array.isArray(room.joinedStudents)) room.joinedStudents = [];
+    if (!Array.isArray(room.chatMessages)) room.chatMessages = [];
+    if (typeof room.active !== 'boolean') room.active = true;
+
+    // Background refresh from Supabase
+    if (window.supabaseClient) {
+      sbFetchRoom(code).then(remote => {
+        if (remote && JSON.stringify(remote) !== JSON.stringify(room)) {
+          const rrooms = LS.get('rooms') || {};
+          rrooms[code] = remote;
+          LS.set('rooms', rrooms);
+        }
+      }).catch(() => {});
+    }
+
+    return room;
+  }
+
+  // No local copy, attempt to fetch from Supabase synchronously via background and return null for now
+  if (window.supabaseClient) {
+    sbFetchRoom(code).then(remote => {
+      if (remote) {
+        const rrooms = LS.get('rooms') || {};
+        rrooms[code] = remote;
+        LS.set('rooms', rrooms);
+      }
+    }).catch(() => {});
+  }
+
+  return null;
 };
 
-// Helper to save room data
+// Helper to save room data (writes to localStorage immediately, then tries to persist to Supabase)
 const saveRoomData = (code, data) => {
   const rooms = LS.get('rooms') || {};
   rooms[code] = data;
   LS.set('rooms', rooms);
+
+  if (window.supabaseClient) {
+    // fire-and-forget upsert
+    sbUpsertRoom(code, data).catch(() => {});
+  }
 };
 
 // Helper to get initials from name

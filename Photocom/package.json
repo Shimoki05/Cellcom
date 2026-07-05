@@ -1,0 +1,10 @@
+{
+  "name": "photocom",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "generate-config": "node scripts/generate-supabase-config.js",
+    "vercel-build": "node scripts/generate-supabase-config.js",
+    "migrate-localstorage": "node scripts/migrate-localstorage-to-supabase.js"
+  }
+}
