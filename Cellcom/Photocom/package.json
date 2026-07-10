@@ -1,0 +1,7 @@
+{
+  "name": "photocom",
+  "private": true,
+  "scripts": {
+    "vercel-build": "echo 'Static site build complete'"
+  }
+}

@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>CELLCOM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=4.0">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- Plant Background -->
+  <div id="plant-bg">
+    <svg class="plant-svg p-tl" viewBox="0 0 200 250" fill="currentColor" style="color: #8ab4f8;">
+      <path d="M100 240 Q90 180 70 160 Q50 140 30 150 Q50 140 60 120 Q70 100 100 110 Q100 80 80 60 Q60 40 40 50 Q60 35 80 45 Q95 55 100 80 Q100 50 85 30 Q100 15 115 30 Q100 50 100 80 Q120 55 140 45 Q160 35 180 50 Q160 40 140 60 Q120 80 100 110 Q130 100 140 120 Q150 140 170 150 Q150 140 130 160 Q110 180 100 240Z" opacity="0.9"/>
+      <path d="M100 240 L98 200 L95 190 L98 200 L100 180 L102 200 L105 190 L102 200 L100 240Z" opacity="0.6"/>
+      <ellipse cx="65" cy="155" rx="20" ry="12" transform="rotate(-20 65 155)" opacity="0.5"/>
+      <ellipse cx="135" cy="155" rx="20" ry="12" transform="rotate(20 135 155)" opacity="0.5"/>
+    </svg>
+    <svg class="plant-svg p-tr" viewBox="0 0 150 180" fill="currentColor" style="color: #669df6;">
+      <path d="M75 170 Q65 120 40 90 Q20 65 10 70 Q25 55 50 65 Q65 72 75 100 Q75 70 55 45 Q40 25 30 30 Q45 15 60 25 Q75 40 75 70 Q80 40 95 25 Q110 10 125 20 Q115 25 100 45 Q80 70 75 100 Q85 72 100 65 Q125 55 140 70 Q130 65 110 90 Q85 120 75 170Z"/>
+    </svg>
+    <svg class="plant-svg p-bl" viewBox="0 0 120 160" fill="currentColor" style="color: #a8c7fa;">
+      <path d="M60 155 Q55 115 40 95 Q25 78 15 82 Q28 70 45 78 Q55 85 60 105 Q68 80 55 60 Q70 45 80 58 Q68 78 60 105 Q70 85 85 78 Q102 70 115 82 Q105 78 90 95 Q75 115 60 155Z"/>
+      <ellipse cx="35" cy="90" rx="14" ry="8" transform="rotate(-15 35 90)" opacity="0.6"/>
+      <ellipse cx="85" cy="90" rx="14" ry="8" transform="rotate(15 85 90)" opacity="0.6"/>
+    </svg>
+    <svg class="plant-svg p-mid" viewBox="0 0 80 120" fill="currentColor" style="color: #4a88f0;">
+      <path d="M40 115 Q36 85 25 70 Q15 58 8 60 Q18 50 30 56 Q38 62 40 78 Q45 60 35 45 Q44 35 50 44 Q42 58 40 78 Q47 62 58 56 Q70 50 78 60 Q72 58 62 70 Q50 85 40 115Z"/>
+    </svg>
+  </div>
+
+  <!-- Landing Page -->
+  <div id="sc-land" class="screen">
+    <button class="land-tbtn" onclick="toggleTheme()" title="Toggle Theme">
+      <i id="tico" data-lucide="moon"></i>
+    </button>
+    <div class="hero-container">
+      <div class="logo-hero">
+        <img src="photocom_logo.png" alt="CELLCOM" onerror="this.outerHTML='<div style=font-family:Lexend,sans-serif;font-size:3.8rem;font-weight:900;color:var(--leaf);letter-spacing:-1.5px;text-shadow:0 4px 20px var(--glow);>CELLCOM</div>'">
+      </div>
+      <div class="hero-tagline">
+        <span class="hero-tag-pill">
+          <i data-lucide="book-open" style="width:18px;height:18px;"></i> Comics
+        </span>
+        <span class="hero-tag-pill">
+          <i data-lucide="clipboard-check" style="width:18px;height:18px;"></i> Quizzes
+        </span>
+        <span class="hero-tag-pill">
+          <i data-lucide="gamepad-2" style="width:18px;height:18px;"></i> Games
+        </span>
+      </div>
+      <h1 class="hero-title">Interactive Learning, Reimagined</h1>
+      <p class="hero-sub">Explore, create, and play your way to knowledge with CELLCOM's engaging learning platform.</p>
+      <div class="landing-buttons">
+        <button class="btn btn-g btn-lg" onclick="openRoleModal('signin')">
+          <i data-lucide="log-in" style="width:20px;height:20px;"></i>
+          Sign In
+        </button>
+        <button class="btn btn-ghost btn-lg" onclick="openRoleModal('register')">
+          <i data-lucide="user-plus" style="width:20px;height:20px;"></i>
+          Register
+        </button>
+      </div>
+      <div class="hero-features">
+        <div class="feature-card">
+          <i data-lucide="sparkles" style="width:28px;height:28px;color:var(--accent-amber);"></i>
+          <h3>Engaging Content</h3>
+          <p>Interactive comics and quizzes that make learning fun</p>
+        </div>
+        <div class="feature-card">
+          <i data-lucide="users" style="width:28px;height:28px;color:var(--accent-blue);"></i>
+          <h3>Role-Based Access</h3>
+          <p>Dedicated dashboards for teachers and students</p>
+        </div>
+        <div class="feature-card">
+          <i data-lucide="star" style="width:28px;height:28px;color:var(--accent-green);"></i>
+          <h3>Gamified Learning</h3>
+          <p>Earn rewards and track your progress with stars</p>
+        </div>
+      </div>
+      <!-- How It Works Section -->
+      <div class="dash-section-title" style="margin-top: 48px; border-top: none; justify-content: center; font-size: 1.2rem; color: var(--txth);">
+        <i data-lucide="help-circle" style="width:20px;height:20px;color:var(--leaf);"></i>
+        How it Works
+      </div>
+      <div class="hero-features" style="margin-top: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+        <div class="feature-card" style="align-items: flex-start; text-align: left; padding: 22px;">
+          <div style="background: rgba(122,162,247,0.15); color: var(--leaf); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; margin-bottom: 12px;">1</div>
+          <h3 style="font-size: 1rem; font-weight: 700;">Teachers Create</h3>
+          <p style="font-size: 0.8rem; line-height: 1.5;">Build structured learning parts, import visual comics, create interactive games and custom quizzes.</p>
+        </div>
+        <div class="feature-card" style="align-items: flex-start; text-align: left; padding: 22px;">
+          <div style="background: rgba(16,185,129,0.15); color: var(--accent-green); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; margin-bottom: 12px;">2</div>
+          <h3 style="font-size: 1rem; font-weight: 700;">Students Join</h3>
+          <p style="font-size: 0.8rem; line-height: 1.5;">Students log in, join secure rooms using a room code, raise their hands, chat, and participate in real time.</p>
+        </div>
+        <div class="feature-card" style="align-items: flex-start; text-align: left; padding: 22px;">
+          <div style="background: rgba(245,158,11,0.15); color: var(--accent-amber); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; margin-bottom: 12px;">3</div>
+          <h3 style="font-size: 1rem; font-weight: 700;">Learn & Grow</h3>
+          <p style="font-size: 0.8rem; line-height: 1.5;">Earn stars, climb the classroom leaderboard, unlock levels, and track comprehension through auto-graded reports.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Role Selection Modal -->
+  <div class="modal-overlay hidden" id="roleModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Choose Role</h2>
+        <button class="close-btn" onclick="closeRoleModal()">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="role-options">
+        <div class="role-card" onclick="selectRole('teacher')">
+          <div class="role-icon" style="background:linear-gradient(135deg,rgba(122,162,247,.2),rgba(122,162,247,.1));border:2px solid rgba(122,162,247,.3);">
+            <i data-lucide="graduation-cap" style="width:48px;height:48px;color:var(--amber);"></i>
+          </div>
+          <h3>Teacher</h3>
+          <p>Create content, manage games, monitor students</p>
+        </div>
+        <div class="role-card" onclick="selectRole('student')">
+          <div class="role-icon" style="background:linear-gradient(135deg,rgba(138,180,248,.2),rgba(102,157,246,.1));border:2px solid rgba(138,180,248,.3);">
+            <i data-lucide="backpack" style="width:48px;height:48px;color:var(--sky);"></i>
+          </div>
+          <h3>Student</h3>
+          <p>Join rooms, learn, play games, earn stars</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Teacher Sign In Modal -->
+  <div class="modal-overlay hidden" id="teacherSigninModal">
+    <div class="modal-content auth-content">
+      <div class="modal-header">
+        <h2>Teacher Sign In</h2>
+        <button class="close-btn" onclick="closeModal('teacherSigninModal')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="auth-form">
+        <label class="lbl">Username</label>
+        <input class="inp" id="tSigninUser" placeholder="Enter username">
+        <label class="lbl">Password</label>
+        <div class="pass-row">
+          <input class="inp" type="password" id="tSigninPass" placeholder="••••••••">
+          <button class="pass-eye" onclick="togglePass(this)"><i data-lucide="eye"></i></button>
+        </div>
+        <button class="btn btn-g mt2" onclick="handleTeacherSignin()">Sign In</button>
+        <div class="divr">or</div>
+        <button class="btn btn-ghost" onclick="closeModal('teacherSigninModal');openRoleModal('register');selectRole('teacher');">Create an Account</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Teacher Register Modal -->
+  <div class="modal-overlay hidden" id="teacherRegisterModal">
+    <div class="modal-content auth-content">
+      <div class="modal-header">
+        <h2>Teacher Register</h2>
+        <button class="close-btn" onclick="closeModal('teacherRegisterModal')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="auth-form">
+        <label class="lbl">Full Name</label>
+        <input class="inp" id="tRegFullName" placeholder="Enter full name">
+        <label class="lbl">Username</label>
+        <input class="inp" id="tRegUser" placeholder="Enter username">
+        <label class="lbl">Email</label>
+        <input class="inp" type="email" id="tRegEmail" placeholder="teacher@school.com">
+        <label class="lbl">Password</label>
+        <div class="pass-row">
+          <input class="inp" type="password" id="tRegPass" placeholder="••••••••">
+          <button class="pass-eye" onclick="togglePass(this)"><i data-lucide="eye"></i></button>
+        </div>
+        <button class="btn btn-g mt2" onclick="handleTeacherRegister()">Register</button>
+        <div class="divr">or</div>
+        <button class="btn btn-ghost" onclick="closeModal('teacherRegisterModal');openRoleModal('signin');selectRole('teacher');">Already have an account?</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Student Sign In Modal -->
+  <div class="modal-overlay hidden" id="studentSigninModal">
+    <div class="modal-content auth-content">
+      <div class="modal-header">
+        <h2>Student Sign In</h2>
+        <button class="close-btn" onclick="closeModal('studentSigninModal')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="auth-form">
+        <label class="lbl">Username</label>
+        <input class="inp" id="sSigninUser" placeholder="Enter username">
+        <label class="lbl">Password</label>
+        <div class="pass-row">
+          <input class="inp" type="password" id="sSigninPass" placeholder="••••••••">
+          <button class="pass-eye" onclick="togglePass(this)"><i data-lucide="eye"></i></button>
+        </div>
+        <button class="btn btn-g mt2" onclick="handleStudentSignin()">Sign In</button>
+        <div class="divr">or</div>
+        <button class="btn btn-ghost" onclick="closeModal('studentSigninModal');openRoleModal('register');selectRole('student');">Create an Account</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Student Register Modal -->
+  <div class="modal-overlay hidden" id="studentRegisterModal">
+    <div class="modal-content auth-content">
+      <div class="modal-header">
+        <h2>Student Register</h2>
+        <button class="close-btn" onclick="closeModal('studentRegisterModal')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="auth-form">
+        <label class="lbl">First Name</label>
+        <input class="inp" id="sRegFirstName" placeholder="Enter first name">
+        <label class="lbl">Last Name</label>
+        <input class="inp" id="sRegLastName" placeholder="Enter last name">
+        <label class="lbl">Grade Level</label>
+        <select class="inp" id="sRegGradeLevel" style="background:var(--surf2);color:var(--txt);border:1.5px solid var(--bdr2);height:46px;width:100%;border-radius:var(--rsm);padding:0 12px;">
+          <option value="Grade 11">Grade 11</option>
+          <option value="Grade 12">Grade 12</option>
+        </select>
+        <label class="lbl">Section</label>
+        <input class="inp" id="sRegSection" placeholder="e.g. 2A">
+        <label class="lbl">Username</label>
+        <input class="inp" id="sRegUser" placeholder="Enter username">
+        <label class="lbl">Password</label>
+        <div class="pass-row">
+          <input class="inp" type="password" id="sRegPass" placeholder="••••••••">
+          <button class="pass-eye" onclick="togglePass(this)"><i data-lucide="eye"></i></button>
+        </div>
+        <button class="btn btn-g mt2" onclick="handleStudentRegister()">Register</button>
+        <div class="divr">or</div>
+        <button class="btn btn-ghost" onclick="closeModal('studentRegisterModal');openRoleModal('signin');selectRole('student');">Already have an account?</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Student Join Room Modal (shows after sign-in) -->
+  <div class="modal-overlay hidden" id="studentJoinRoomModal">
+    <div class="modal-content auth-content">
+      <div class="modal-header">
+        <h2>Join Game Room</h2>
+        <button class="close-btn" onclick="closeModal('studentJoinRoomModal');logout();">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="auth-form">
+        <label class="lbl">Room Code</label>
+        <input class="inp" id="studentJoinRoomCodeInput" placeholder="e.g. ABC123" style="font-family:Lexend,sans-serif;font-size:1.5rem;text-transform:uppercase;letter-spacing:4px;">
+        <button class="btn btn-g mt2" onclick="handleStudentJoinRoomFromModal()">
+          <i data-lucide="gamepad-2"></i>
+          Join Room & Enter
+        </button>
+        <div class="divr">or</div>
+        <button class="btn btn-ghost" onclick="closeModal('studentJoinRoomModal');logout();">
+          <i data-lucide="log-out"></i>
+          Sign Out
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Teacher Dashboard -->
+  <div id="sc-tdash" class="dash hidden">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-logo">
+        <img src="photocom_logo.png" alt="CELLCOM" onerror="this.outerHTML='<div style=font-family:Lexend,sans-serif;font-size:1.5rem;font-weight:800;color:var(--leaf);>CELLCOM</div>'">
+        <div class="sidebar-logo-text">CellCom Learning</div>
+      </div>
+      <div class="sidebar-nav">
+        <button class="sidebar-btn on" onclick="setTeacherTab('home')">
+          <i data-lucide="home"></i>
+          <span>Home</span>
+        </button>
+        <div class="sidebar-dropdown-container">
+          <button class="sidebar-btn dropdown-toggle" id="sidebar-btn-parts" onclick="togglePartsDropdown(event);setTeacherTab('parts')">
+            <i data-lucide="package"></i>
+            <span>Parts</span>
+            <i data-lucide="chevron-down" class="parts-dropdown-chevron" style="margin-left:auto; width: 16px; height: 16px;"></i>
+          </button>
+          <div class="sidebar-dropdown-menu hidden" id="partsDropdownMenu">
+            <button class="sidebar-sub-btn" data-tab="comics" onclick="setPartsActive('comics');setTeacherTab('comics')">
+              <i data-lucide="book-open" style="width: 14px; height: 14px;"></i>
+              <span>Comics</span>
+            </button>
+            <button class="sidebar-sub-btn" data-tab="quizzes" onclick="setPartsActive('quizzes');setTeacherTab('quizzes')">
+              <i data-lucide="clipboard-check" style="width: 14px; height: 14px;"></i>
+              <span>Quizzes</span>
+            </button>
+            <button class="sidebar-sub-btn" data-tab="games" onclick="setPartsActive('games');setTeacherTab('games')">
+              <i data-lucide="gamepad-2" style="width: 14px; height: 14px;"></i>
+              <span>Games</span>
+            </button>
+          </div>
+        </div>
+        <div class="sidebar-dropdown-container">
+          <button class="sidebar-btn dropdown-toggle" id="sidebar-btn-room-teacher" onclick="toggleRoomDropdown(event);setTeacherTab('room')">
+            <i data-lucide="tv"></i>
+            <span>Room</span>
+            <i data-lucide="chevron-down" class="dropdown-chevron" style="margin-left:auto; width: 16px; height: 16px;"></i>
+          </button>
+          <div class="sidebar-dropdown-menu hidden" id="teacherRoomDropdownMenu">
+            <button class="sidebar-sub-btn" id="teacherRoomCurrentBtn" onclick="openTeacherRoom(null, event)">
+              <i data-lucide="hash" style="width: 14px; height: 14px;"></i>
+              <span id="existingTeacherRoomText">Open Current Room</span>
+            </button>
+            <button class="sidebar-sub-btn" onclick="generateNewRoomCode(); event.stopPropagation();">
+              <i data-lucide="plus-circle" style="width: 14px; height: 14px;"></i>
+              <span>Add Another Room</span>
+            </button>
+            <button class="sidebar-sub-btn" id="teacherRoomRemoveBtn" onclick="removeTeacherRoom(event);" style="color: var(--accent-rose);">
+              <i data-lucide="trash-2" style="width: 14px; height: 14px;"></i>
+              <span>Remove Current Room</span>
+            </button>
+          </div>
+        </div>
+        <button class="sidebar-btn" onclick="setTeacherTab('reports')">
+          <i data-lucide="bar-chart-3"></i>
+          <span>Reports</span>
+        </button>
+        <button class="sidebar-btn" onclick="setTeacherTab('class')">
+          <i data-lucide="users"></i>
+          <span>Class</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Top Bar -->
+    <div class="topbar-mobile">
+      <button class="btn btn-icon" onclick="toggleMobileSidebar()">
+        <i data-lucide="menu"></i>
+      </button>
+      <div class="sidebar-logo">
+        <img src="photocom_logo.png" alt="PHOTOCOM" onerror="this.outerHTML='<div style=font-family:Lexend,sans-serif;font-size:1.2rem;font-weight:800;color:var(--leaf);>PHOTOCOM</div>'">
+      </div>
+      <button class="btn btn-icon" onclick="toggleTheme()" title="Toggle Theme">
+        <i class="theme-ico" data-lucide="moon"></i>
+      </button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="dashboard-navbar">
+        <div class="navbar-search-wrapper">
+          <div class="navbar-search search-wrapper">
+            <i class="search-icon" data-lucide="search"></i>
+            <input id="topSearch" class="top-search" type="search" placeholder="Search parts, quizzes, students..." autocomplete="off">
+            <div class="search-suggestions hidden" id="searchSuggestions" role="listbox" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+
+        <div class="navbar-actions">
+          <button class="mobile-search-btn btn btn-icon" onclick="openMobileSearch()" aria-label="Open search">
+            <i data-lucide="search"></i>
+          </button>
+          <button class="profile-chip" id="navbarProfileBtn" onclick="toggleProfileDropdown(event)">
+            <span class="profile-avatar"><i data-lucide="user" class="profile-avatar-icon"></i></span>
+            <span class="profile-name" id="navbarProfileName">Teacher</span>
+            <i data-lucide="chevron-down" class="profile-chevron" style="width:16px;height:16px;"></i>
+          </button>
+          <div class="profile-dropdown hidden" id="navbarProfileDropdown">
+            <button class="dropdown-item" onclick="openUserProfile(); closeProfileDropdown();">
+              <i data-lucide="user" class="dropdown-icon" style="width:16px;height:16px;"></i>
+              View Profile
+            </button>
+            <button class="dropdown-item" onclick="toggleTheme(); closeProfileDropdown();">
+              <i data-lucide="moon" class="dropdown-icon" style="width:16px;height:16px;"></i>
+              Change Theme
+            </button>
+            <button class="dropdown-item danger" onclick="logout(); closeProfileDropdown();">
+              <i data-lucide="log-out" class="dropdown-icon" style="width:16px;height:16px;"></i>
+              Logout
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="db">
+        <!-- Teacher Home Tab -->
+        <div id="t-home">
+          <div class="dashboard-hero">
+            <div>
+              <div class="eyebrow">Welcome back, <span id="t-hero-teacher-name">Teacher</span></div>
+              <h2 class="sec">Your class overview</h2>
+              <p class="dashboard-intro">Review student engagement, lesson progress, and simple statistics at a glance.</p>
+            </div>
+            <div class="dashboard-actions">
+              <button class="btn btn-g" onclick="openPartModal()">Create Part</button>
+              <button class="btn btn-ghost" onclick="openGameModal()">Create Game</button>
+            </div>
+          </div>
+
+          <div class="srow">
+            <div class="schip" onclick="setTeacherTab('class')" data-tooltip="Manage students list">
+              <div class="chip-head">
+                <span class="sv" id="t-h-students">0</span>
+                <i data-lucide="users" class="chip-icon" style="color: var(--accent-blue);"></i>
+              </div>
+              <span class="sk">Students</span>
+            </div>
+            <div class="schip" onclick="setTeacherTab('parts')" data-tooltip="View lesson parts">
+              <div class="chip-head">
+                <span class="sv" id="t-h-parts">0</span>
+                <i data-lucide="package" class="chip-icon" style="color: var(--accent-green);"></i>
+              </div>
+              <span class="sk">Learning Parts</span>
+            </div>
+            <div class="schip" onclick="setTeacherTab('quizzes')" data-tooltip="Manage classroom quizzes">
+              <div class="chip-head">
+                <span class="sv" id="t-h-quizzes">0</span>
+                <i data-lucide="clipboard-check" class="chip-icon" style="color: var(--accent-amber);"></i>
+              </div>
+              <span class="sk">Quizzes</span>
+            </div>
+            <div class="schip" onclick="setTeacherTab('comics')" data-tooltip="Manage learning comics">
+              <div class="chip-head">
+                <span class="sv" id="t-h-comics">0</span>
+                <i data-lucide="book-open" class="chip-icon" style="color: var(--accent-purple);"></i>
+              </div>
+              <span class="sk">Comics</span>
+            </div>
+          </div>
+
+          <div class="dash-section-title">
+            <i data-lucide="lightbulb" style="width:18px;height:18px;color:var(--leaf);"></i>
+            Your Class at a Glance
+          </div>
+          <div class="dashboard-summary-grid">
+            <div class="stat-card" data-tooltip="Active lesson sections in the class">
+              <div class="stat-card-head">
+                <span class="stat-label">Active Lessons</span>
+                <i data-lucide="play-circle" style="width: 24px; height: 24px; color: var(--accent-green);"></i>
+              </div>
+              <span class="stat-value" id="t-h-active-parts">0</span>
+              <p>Lessons currently open for students to join and complete.</p>
+              <div class="progress-chart"><span class="progress-fill" style="width: 68%"></span></div>
+            </div>
+            <div class="stat-card" data-tooltip="Total published materials">
+              <div class="stat-card-head">
+                <span class="stat-label">Published materials</span>
+                <i data-lucide="files" style="width: 24px; height: 24px; color: var(--accent-blue);"></i>
+              </div>
+              <span class="stat-value" id="t-h-published-content">0</span>
+              <p>Materials ready to share with your class this week.</p>
+              <div class="progress-chart"><span class="progress-fill" style="width: 86%"></span></div>
+            </div>
+            <div class="stat-card" data-tooltip="Unique concepts taught">
+              <div class="stat-card-head">
+                <span class="stat-label">Learning topics</span>
+                <i data-lucide="compass" style="width: 24px; height: 24px; color: var(--accent-purple);"></i>
+              </div>
+              <span class="stat-value" id="t-h-topics">0</span>
+              <p>Key concepts covered across active lesson plans.</p>
+              <div class="progress-chart"><span class="progress-fill" style="width: 56%"></span></div>
+            </div>
+            <div class="stat-card" data-tooltip="Students currently active">
+              <div class="stat-card-head">
+                <span class="stat-label">Students participating</span>
+                <i data-lucide="activity" style="width: 24px; height: 24px; color: var(--accent-sky);"></i>
+              </div>
+              <span class="stat-value" id="t-h-completed-students">0</span>
+              <p>Students currently active across live lessons and rooms.</p>
+              <div class="progress-chart"><span class="progress-fill" style="width: 44%"></span></div>
+            </div>
+          </div>
+
+          <div class="dash-section-title">
+            <i data-lucide="award" style="width:18px;height:18px;color:var(--amber);"></i>
+            Top Learners
+            <button class="btn btn-ghost btn-sm" style="margin-left:auto;" onclick="setTeacherTab('leaderboard')">
+              View Leaderboard <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+            </button>
+          </div>
+          <div class="dash-mini-grid" id="t-home-topstudents"></div>
+
+          <div class="dash-section-title" style="margin-top:28px;">
+            <i data-lucide="package" style="width:18px;height:18px;color:var(--sky);"></i>
+            Learning Parts
+            <button class="btn btn-ghost btn-sm" style="margin-left:auto;" onclick="setTeacherTab('parts')">
+              Open Parts <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+            </button>
+          </div>
+          <div class="dash-mini-grid" id="t-home-parts"></div>
+
+          <div class="dash-section-title" style="margin-top:28px;">
+            <i data-lucide="zap" style="width:18px;height:18px;color:var(--leaf);"></i>
+            Start Something New
+          </div>
+          <div class="cgrid create-grid" style="gap:14px; margin-bottom: 20px;">
+            <div class="card create-card" onclick="openPartModal()">
+              <div class="create-ico"><i data-lucide="plus-circle"></i></div>
+              <h4>Create a Part</h4>
+              <p>Start a new lesson section for your class.</p>
+            </div>
+            <div class="card create-card" onclick="setTeacherTab('comics')">
+              <div class="create-ico"><i data-lucide="book-open"></i></div>
+              <h4>Create a Comic</h4>
+              <p>Make a fun story lesson for students.</p>
+            </div>
+            <div class="card create-card" onclick="setTeacherTab('quizzes')">
+              <div class="create-ico"><i data-lucide="clipboard-check"></i></div>
+              <h4>Create a Quiz</h4>
+              <p>Check understanding with a short quiz.</p>
+            </div>
+            <div class="card create-card" onclick="openGameModal()">
+              <div class="create-ico"><i data-lucide="gamepad-2"></i></div>
+              <h4>Create a Game</h4>
+              <p>Make an interactive activity for practice.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teacher Parts Tab -->
+        <div id="t-parts" class="hidden">
+          <div class="section-header" style="align-items:flex-start; gap:18px;">
+            <div>
+              <span class="section-label">Parts</span>
+              <h2 class="sec" style="margin:12px 0 0 0;">Organize your lesson flow</h2>
+              <p class="section-copy">Group comics, quizzes, and games into parts so students move through a clear learning path.</p>
+            </div>
+            <button class="btn btn-g btn-sm section-cta" onclick="openPartModal()">
+              <i data-lucide="plus"></i> Add part
+            </button>
+          </div>
+          <div class="part-workspace-shell">
+            <div id="teacher-parts-grid" class="pgrid" style="margin-top:16px;">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+          <div id="teacher-part-detail-view" class="hidden">
+            <div class="tab-header">
+              <button class="btn btn-ghost btn-sm" onclick="closePartWorkspace()">
+                <i data-lucide="arrow-left"></i> Back to Parts
+              </button>
+            </div>
+            <div id="teacher-part-detail-content">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Teacher Comics Tab -->
+        <div id="t-comics" class="hidden">
+          <div id="teacher-comics-container">
+            <div class="section-header">
+              <div>
+                <span class="section-label">Comics</span>
+                <h2 class="sec" style="margin:12px 0 0 0;">Bring stories to your lesson</h2>
+                <p class="section-copy">Use comics to make concepts memorable with visual storytelling and guided reading.</p>
+                <button class="btn btn-g btn-sm section-cta" onclick="openComicModal()">
+                  <i data-lucide="plus"></i> Create Comic
+                </button>
+              </div>
+            </div>
+            <div id="teacher-comics-list"></div>
+          </div>
+        </div>
+
+        <!-- Teacher Games Tab -->
+        <div id="t-games" class="hidden">
+          <div id="teacher-games-container">
+            <div class="section-header">
+              <div>
+                <span class="section-label">Games</span>
+                <h2 class="sec" style="margin:12px 0 0 0;">Design interactive practice</h2>
+                <p class="section-copy">Build playable activities that turn review into discovery and reward effort.</p>
+                <button class="btn btn-g btn-sm section-cta" onclick="openModal('gameTypeModal');refreshLucide();">
+                  <i data-lucide="plus"></i> Create Game
+                </button>
+              </div>
+            </div>
+            <div id="teacher-games-list"></div>
+          </div>
+        </div>
+
+        <!-- Teacher Quizzes Tab -->
+        <div id="t-quizzes" class="hidden">
+          <div id="teacher-quiz-main-view">
+            <div class="section-header">
+              <div>
+                <span class="section-label">Quizzes</span>
+                <h2 class="sec" style="margin:12px 0 0 0;">Check understanding fast</h2>
+                <p class="section-copy">Create quick checks and surveys so students can reflect and you can measure progress.</p>
+                <button class="btn btn-g btn-sm section-cta" onclick="openCreateQuizForm()">
+                  <i data-lucide="plus"></i> Create Quiz
+                </button>
+              </div>
+            </div>
+            <div id="teacher-quizzes-list"></div>
+          </div>
+        </div>
+
+  <!-- Quiz Modal -->
+  <div class="modal-overlay hidden" id="quizModal">
+    <div class="modal-content auth-content" style="max-width:900px;width:90vw;">
+      <div class="modal-header" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <h2 id="quizModalTitle">Create New Quiz</h2>
+          <select id="qz-type" class="inp" onchange="handleQzTypeChange()" style="height:36px;padding:6px 10px;border-radius:8px;border:1px solid var(--bdr);background:var(--bg);">
+            <option value="Pre-Test">Pre-Test</option>
+            <option value="Post-Test">Post-Test</option>
+            <option value="Survey Questionnaire">Survey Questionnaire</option>
+          </select>
+        </div>
+        <button class="close-btn" onclick="closeQuizModal()">✕</button>
+      </div>
+      <div class="auth-form" style="max-height:80vh;overflow-y:auto;">
+        <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;align-items:end;">
+          <div>
+            <label class="lbl" style="font-size:0.9rem;margin-bottom:8px;">Quiz Title <span style="color:var(--coral);">*</span></label>
+            <input class="inp" id="qz-title" placeholder="e.g. Biology Post-Test 1" autofocus>
+          </div>
+          <div>
+            <label class="lbl" style="font-size:0.9rem;margin-bottom:8px;">Assign to Part</label>
+            <select class="inp" id="qz-part" style="background:var(--surf2);color:var(--txt);border:1px solid var(--bdr);height:46px;width:100%;border-radius:var(--rsm);padding:0 12px;">
+              <option value="Part 1">Part 1</option>
+              <option value="Part 2">Part 2</option>
+              <option value="Part 3">Part 3</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
+          <div>
+            <label class="lbl" style="font-size:0.9rem;margin-bottom:8px;">Opens at (Schedule)</label>
+            <input class="inp" type="datetime-local" id="qz-opens-at" style="height:46px;">
+          </div>
+          <div>
+            <label class="lbl" style="font-size:0.9rem;margin-bottom:8px;">Question Time Limit (Seconds, 0 = no limit)</label>
+            <select class="inp" id="qz-question-limit" style="background:var(--surf2);color:var(--txt);border:1px solid var(--bdr);height:46px;width:100%;border-radius:var(--rsm);padding:0 12px;">
+              <option value="0">No Limit</option>
+              <option value="15">15 Seconds</option>
+              <option value="30">30 Seconds</option>
+              <option value="45">45 Seconds</option>
+              <option value="60">60 Seconds</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row" style="display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:20px;">
+          <div>
+            <label class="lbl" style="font-size:0.9rem;margin-bottom:8px;">Overall Time Limit (Minutes, 0 = no limit)</label>
+            <input class="inp" type="number" id="qz-duration" value="30" min="0">
+          </div>
+        </div>
+        <div class="schedule-box" style="margin-bottom:24px;background:var(--surf2);padding:20px;border-radius:var(--rsm);border:1px solid var(--bdr);">
+          <div class="schedule-toggle-row" style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <span class="lbl" id="qz-lock-label" style="margin:0;font-size:0.9rem;">Lock This Quiz</span>
+            <button class="choice-delete-btn" id="qz-lock-toggle" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:transparent;transition:all 0.3s ease;cursor:pointer;border:none;" onclick="toggleQuizLock()">
+              <i data-lucide="lock" id="qz-lock-icon" style="width:24px;height:24px;color:var(--coral);"></i>
+            </button>
+          </div>
+          <div id="qz-unlock-row" style="margin-top:12px; display:block;">
+            <label class="lbl" style="font-size:0.9rem;margin-top:0;display:block;">Auto Unlock Date & Time</label>
+            <input class="inp" type="datetime-local" id="qz-unlock-at" style="height:46px;">
+          </div>
+        </div>
+
+      <div id="quiz-questions-section" class="hidden">
+        <hr style="border:0;border-top:1px solid var(--bdr);margin:24px 0;">
+        <h3 class="sec" style="font-size:1.25rem;margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+          <i data-lucide="file-text" style="width:24px;height:24px;"></i> Questions Workspace
+        </h3>
+        <div id="qz-questions-list" style="display:flex;flex-direction:column;gap:18px;">
+          <!-- Question cards added dynamically -->
+        </div>
+        <div style="display:flex;gap:16px;margin-top:24px;align-items:center;">
+          <button class="btn btn-ghost" type="button" onclick="addQuizQuestionEditor()">
+            <i data-lucide="plus-circle"></i> Add Question
+          </button>
+          <button class="btn btn-g" type="button" onclick="saveNewQuiz()" style="margin-left:auto;display:flex;gap:8px;align-items:center;">
+            <i data-lucide="save"></i> Save Questions
+          </button>
+        </div>
+      </div>
+
+      <div id="quiz-save-settings-section">
+        <div style="display:flex;gap:16px;margin-top:24px;align-items:center;">
+          <button class="btn btn-g" type="button" onclick="saveNewQuiz()" style="margin-left:auto;display:flex;gap:8px;align-items:center;">
+            <i data-lucide="save"></i> Save Quiz
+          </button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+        <!-- Teacher Room Tab -->
+        <div id="t-room" class="hidden">
+          <div class="section-header" style="align-items:flex-start; gap:18px;">
+            <div>
+              <span class="section-label">Game Room</span>
+              <h2 class="sec" style="margin:12px 0 0 0;">Run live sessions with your class</h2>
+              <p class="section-copy">Manage the current room, share the join code, and keep student participation visible in one place.</p>
+            </div>
+            <button class="btn btn-g btn-sm" onclick="generateNewRoomCode();">
+              <i data-lucide="refresh-cw"></i> New Code
+            </button>
+          </div>
+          <div class="room-page-grid">
+            <div class="room-panel">
+              <div class="codebox">
+                <div class="rc-label">ROOM CODE</div>
+                <div class="codetxt" id="roomCode">ABC123</div>
+                <div class="rc-sub">Share this code with your students</div>
+                <div class="rc-actions" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;">
+                  <button class="btn btn-g" onclick="copyRoomCode()">
+                    <i data-lucide="copy"></i>
+                    Copy Code
+                  </button>
+                  <button class="btn btn-ghost" onclick="generateNewRoomCode()">
+                    <i data-lucide="plus-circle"></i>
+                    New Room
+                  </button>
+                  <button class="btn btn-danger" onclick="removeTeacherRoom()">
+                    <i data-lucide="trash-2"></i>
+                    Remove Room
+                  </button>
+                </div>
+              </div>
+
+              <div class="room-controls">
+                <div class="room-controls-title">
+                  <i data-lucide="sliders-horizontal"></i>
+                  Room Controls
+                </div>
+                <div class="room-controls-grid">
+                  <button class="room-ctrl-btn" onclick="sendAnnouncement()">
+                    <i data-lucide="megaphone"></i>
+                    Announcement
+                  </button>
+                  <button class="room-ctrl-btn" onclick="clearRoomChat()">
+                    <i data-lucide="trash-2"></i>
+                    Clear Chat
+                  </button>
+                  <button class="room-ctrl-btn" id="toggleLockRoomBtn" onclick="toggleLockRoom()">
+                    <i data-lucide="lock"></i>
+                    Lock Room
+                  </button>
+                </div>
+              </div>
+
+              <div class="section-header" style="margin-top:0; padding-top:0;">
+                <h2 class="sec" style="margin:0; font-size:1.05rem;">Students Joined</h2>
+                <p class="section-copy" style="margin:6px 0 0 0;">See who joined the room and who is ready to participate.</p>
+              </div>
+              <div class="sgrid" id="t-joinedStudents">
+                <!-- Students will be dynamically added here -->
+              </div>
+            </div>
+
+            <div class="chat-card">
+              <div class="chat-hdr">
+                <div class="chat-hdr-left">
+                  <div class="livdot"></div>
+                  Live chat
+                </div>
+                <div class="chat-hdr-right">
+                  <button class="btn btn-ghost btn-sm" onclick="clearRoomChat()">
+                    <i data-lucide="trash-2"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="chat-msgs" id="chatMessages">
+                <!-- Messages dynamically added here -->
+              </div>
+              <div class="chat-emoji">
+                <button onclick="sendEmoji('👍')">👍</button>
+                <button onclick="sendEmoji('🎉')">🎉</button>
+                <button onclick="sendEmoji('🚀')">🚀</button>
+                <button onclick="sendEmoji('💯')">💯</button>
+                <button onclick="sendEmoji('👏')">👏</button>
+              </div>
+              <div class="chat-input">
+                <input type="text" placeholder="Share an update or prompt" id="chatInput">
+                <button onclick="sendChat()">
+                  <i data-lucide="send"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teacher Reports Tab -->
+        <div id="t-reports" class="hidden">
+          <h2 class="sec">Reports</h2>
+          <div class="rtabs">
+            <button class="rtab on">Overview</button>
+            <button class="rtab">By Student</button>
+            <button class="rtab">By Quiz</button>
+          </div>
+
+          <div class="rcard2">
+            <h4 class="rcard2-title">Class Performance</h4>
+            <div class="rbarl">
+              <span>Average Score</span>
+              <span>82%</span>
+            </div>
+            <div class="rbar"><div class="rbf" style="width:82%;background:var(--leaf);"></div></div>
+
+            <div class="rbarl" style="margin-top:16px;">
+              <span>Completion Rate</span>
+              <span>75%</span>
+            </div>
+            <div class="rbar"><div class="rbf" style="width:75%;background:var(--sky);"></div></div>
+          </div>
+
+          <h2 class="sec" style="margin-top:24px;">Leaderboard</h2>
+          <div class="lb-podium">
+            <!-- 2nd Place -->
+            <div class="podium-card rank-2">
+              <div class="podium-medal">🥈</div>
+              <div class="podium-rank">2nd</div>
+              <div class="podium-name">John Doe</div>
+              <div class="podium-score">2100 pts</div>
+            </div>
+            <!-- 1st Place -->
+            <div class="podium-card rank-1">
+              <div class="podium-medal">🥇</div>
+              <div class="podium-rank">1st</div>
+              <div class="podium-name">Jane Smith</div>
+              <div class="podium-score">2450 pts</div>
+            </div>
+            <!-- 3rd Place -->
+            <div class="podium-card rank-3">
+              <div class="podium-medal">🥉</div>
+              <div class="podium-rank">3rd</div>
+              <div class="podium-name">Bob Wilson</div>
+              <div class="podium-score">1900 pts</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teacher Class Tab -->
+        <div id="t-class" class="hidden">
+          <div class="section-header" style="align-items:flex-start; gap:18px;">
+            <div>
+              <span class="section-label">Class</span>
+              <h2 class="sec" style="margin:12px 0 0 0;">Manage your students</h2>
+              <p class="section-copy">Maintain a clean roster, track quiz activity, and see who needs help.</p>
+            </div>
+            <button class="btn btn-ghost btn-sm" onclick="setTeacherTab('reports')">
+              <i data-lucide="bar-chart-3"></i> View reports
+            </button>
+          </div>
+
+          <div class="cclass" style="display:flex; flex-wrap:wrap; gap:18px; justify-content:space-between; align-items:flex-start;">
+            <div>
+              <h4 id="teacher-class-name-lbl">My Classroom</h4>
+              <p id="teacher-class-count-lbl">0 students registered</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="gcbtn" onclick="setTeacherTab('parts')"><i data-lucide="package"></i> Lesson Parts</button>
+              <button class="gcbtn" onclick="setTeacherTab('quizzes')"><i data-lucide="clipboard-check"></i> Quizzes</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="rtbl">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Course & Section</th>
+                  <th>Quizzes Taken</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="teacher-class-students-tbody">
+                <!-- Dynamically populated from actual registered students -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Bottom Nav -->
+    <div class="mobile-nav">
+      <button class="mnb on" onclick="setTeacherTab('home')">
+        <i data-lucide="home"></i>
+        Home
+      </button>
+      <button class="mnb" onclick="setTeacherTab('parts')">
+        <i data-lucide="package"></i>
+        Parts
+      </button>
+      <button class="mnb" onclick="setTeacherTab('room')">
+        <i data-lucide="tv"></i>
+        Room
+      </button>
+      <button class="mnb" onclick="setTeacherTab('reports')">
+        <i data-lucide="bar-chart-3"></i>
+        Reports
+      </button>
+    </div>
+  </div>
+
+  <!-- Student Dashboard -->
+  <div id="sc-sdash" class="dash hidden">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-logo">
+        <img src="photocom_logo.png" alt="CELLCOM" onerror="this.outerHTML='<div style=font-family:Lexend,sans-serif;font-size:1.5rem;font-weight:800;color:var(--leaf);>CELLCOM</div>'">
+      </div>
+      <div class="sidebar-nav">
+        <button class="sidebar-btn on" onclick="setStudentTab('home')">
+          <i data-lucide="home"></i>
+          <span>Home</span>
+        </button>
+        <div class="sidebar-dropdown-container">
+          <button class="sidebar-btn dropdown-toggle" id="sidebar-btn-parts-student" onclick="togglePartsDropdown(event);setStudentTab('parts')">
+            <i data-lucide="package"></i>
+            <span>Parts</span>
+            <i data-lucide="chevron-down" class="parts-dropdown-chevron" style="margin-left:auto; width: 16px; height: 16px;"></i>
+          </button>
+          <div class="sidebar-dropdown-menu hidden" id="partsDropdownMenuStudent">
+            <button class="sidebar-sub-btn" data-tab="comics" onclick="setPartsActive('comics');setStudentTab('comics')">
+              <i data-lucide="book-open" style="width: 14px; height: 14px;"></i>
+              <span>Comics</span>
+            </button>
+            <button class="sidebar-sub-btn" data-tab="quizzes" onclick="setPartsActive('quizzes');setStudentTab('quizzes')">
+              <i data-lucide="clipboard-check" style="width: 14px; height: 14px;"></i>
+              <span>Quizzes</span>
+            </button>
+            <button class="sidebar-sub-btn" data-tab="games" onclick="setPartsActive('games');setStudentTab('games')">
+              <i data-lucide="gamepad-2" style="width: 14px; height: 14px;"></i>
+              <span>Games</span>
+            </button>
+          </div>
+        </div>
+        <div class="sidebar-dropdown-container">
+          <button class="sidebar-btn dropdown-toggle" id="sidebar-btn-room" onclick="toggleRoomDropdown(event)">
+            <i data-lucide="tv"></i>
+            <span>Room</span>
+            <i data-lucide="chevron-down" class="dropdown-chevron" style="margin-left: auto; width: 16px; height: 16px;"></i>
+          </button>
+          <div class="sidebar-dropdown-menu hidden" id="roomDropdownMenu">
+            <button class="sidebar-sub-btn" id="subBtnExistingRoom" onclick="goToExistingRoom(event)">
+              <i data-lucide="hash" style="width: 14px; height: 14px;"></i>
+              <span id="existingRoomText">Existing Room</span>
+            </button>
+            <button class="sidebar-sub-btn" id="subBtnJoinAnother" onclick="joinAnotherRoom(event)">
+              <i data-lucide="plus-circle" style="width: 14px; height: 14px;"></i>
+              <span>Join Another Room</span>
+            </button>
+          </div>
+        </div>
+        <button class="sidebar-btn" onclick="setStudentTab('leaderboard')">
+          <i data-lucide="trophy"></i>
+          <span>Leaderboard</span>
+        </button>
+      </div>
+      <div class="sidebar-footer">
+        <div class="sidebar-user" onclick="openUserProfile()">
+          <div class="sav">🧑‍🎓</div>
+          <div>
+            <div class="snm" id="studentSidebarName">Student</div>
+          </div>
+        </div>
+        <button class="btn btn-ghost" onclick="toggleTheme()" title="Toggle Theme" style="width:100%;">
+          <i class="theme-ico" data-lucide="moon" style="width:16px;height:16px;"></i>
+          Change Theme
+        </button>
+        <button class="btn btn-ghost" onclick="logout()">
+          <i data-lucide="log-out"></i>
+          Logout
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Top Bar -->
+    <div class="topbar-mobile">
+      <button class="btn btn-icon" onclick="toggleMobileSidebar()">
+        <i data-lucide="menu"></i>
+      </button>
+      <div class="sidebar-logo">
+        <img src="photocom_logo.png" alt="CELLCOM" onerror="this.outerHTML='<div style=font-family:Lexend,sans-serif;font-size:1.2rem;font-weight:800;color:var(--leaf);>CELLCOM</div>'">
+      </div>
+      <button class="btn btn-icon" onclick="toggleTheme()" title="Toggle Theme">
+        <i class="theme-ico" data-lucide="moon"></i>
+      </button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="db">
+        <!-- Student Home Tab -->
+        <div id="s-home">
+          <div class="dashboard-hero" style="align-items:center;">
+            <div>
+              <div class="eyebrow">Student Dashboard</div>
+              <h2 class="sec" id="s-h-name">Hi, Student!</h2>
+              <p class="dashboard-intro">Track your progress, continue learning, and open the next activity with confidence.</p>
+            </div>
+            <div class="dashboard-actions">
+              <button class="btn btn-g" onclick="setStudentTab('quizzes')">My Quizzes</button>
+              <button class="btn btn-ghost" onclick="setStudentTab('games')">My Games</button>
+            </div>
+          </div>
+
+          <div class="srow" style="margin-top:0px;">
+            <div class="schip" data-tooltip="Your total star score">
+              <div class="chip-head">
+                <span class="sv" id="s-h-stars">0</span>
+                <i data-lucide="star" class="chip-icon" style="color: var(--accent-amber);"></i>
+              </div>
+              <span class="sk">Stars Earned</span>
+            </div>
+            <div class="schip" data-tooltip="Levels you can play">
+              <div class="chip-head">
+                <span class="sv" id="s-h-levels">0</span>
+                <i data-lucide="layers" class="chip-icon" style="color: var(--accent-green);"></i>
+              </div>
+              <span class="sk">Levels Available</span>
+            </div>
+            <div class="schip" data-tooltip="Quizzes you completed">
+              <div class="chip-head">
+                <span class="sv" id="s-h-quizzes">0</span>
+                <i data-lucide="clipboard-check" class="chip-icon" style="color: var(--accent-blue);"></i>
+              </div>
+              <span class="sk">Quizzes Done</span>
+            </div>
+            <div class="schip" data-tooltip="Comics you read">
+              <div class="chip-head">
+                <span class="sv" id="s-h-comics">0</span>
+                <i data-lucide="book-open" class="chip-icon" style="color: var(--accent-purple);"></i>
+              </div>
+              <span class="sk">Comics Opened</span>
+            </div>
+            <div class="schip" data-tooltip="Your current leaderboard rank">
+              <div class="chip-head">
+                <span class="sv" id="s-h-rank">#1</span>
+                <i data-lucide="trophy" class="chip-icon" style="color: var(--accent-sky);"></i>
+              </div>
+              <span class="sk">Rank</span>
+            </div>
+          </div>
+
+          <div class="dash-section-title" style="margin-top:28px;">
+            <i data-lucide="play-circle" style="width:18px;height:18px;color:var(--leaf);"></i>
+            Keep Going
+          </div>
+          <div class="dashboard-summary-grid" id="s-home-activity">
+            <div class="stat-card" style="min-height:128px; display:flex; flex-direction:column; justify-content:center;">
+              <div class="stat-card-head">
+                <span class="stat-label">Next activity</span>
+                <i data-lucide="arrow-right-circle" style="width:20px;height:20px;color:var(--leaf);"></i>
+              </div>
+              <span class="stat-value">Ready</span>
+              <p style="margin:0;color:var(--txt3);font-size:.9rem;">Continue the next quiz or game from your personalized learning path.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Games Tab -->
+        <div id="s-games" class="hidden">
+          <h2 class="sec">Games</h2>
+          <div id="student-games-grid" class="pgrid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Student Parts Tab -->
+        <div id="s-parts" class="hidden">
+          <h2 class="sec">Parts</h2>
+          <div id="student-parts-grid" class="pgrid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Student Comics Tab -->
+        <div id="s-comics" class="hidden">
+          <h2 class="sec">Comics</h2>
+          <div id="student-comics-grid" class="cgrid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Student Quizzes Tab -->
+        <div id="s-quizzes" class="hidden">
+          <h2 class="sec">Quizzes</h2>
+          <div id="student-quizzes-grid" class="cgrid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Student Room Tab -->
+        <div id="s-room" class="hidden">
+          <div id="s-room-join-form" class="">
+            <h2 class="sec">Join Game Room</h2>
+            <div class="auth-wrap" style="max-width:420px;">
+              <div class="auth-box">
+                <h2>Enter Room Code</h2>
+                <p class="auth-sub">Ask your teacher for the room code</p>
+                <label class="lbl">Room Code</label>
+                <input class="inp" id="joinRoomCode" placeholder="e.g. ABC123" style="font-family:Lexend,sans-serif;font-size:1.5rem;text-transform:uppercase;letter-spacing:4px;">
+                <button class="btn btn-g mt2" onclick="joinRoom()">
+                  <i data-lucide="gamepad-2"></i>
+                  Join Room
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="s-room-joined" class="hidden">
+            <h2 class="sec">Game Room</h2>
+            <div class="rlayout">
+              <div>
+                <div class="codebox">
+                  <div class="rc-label">ROOM CODE</div>
+                  <div class="codetxt" id="s-roomCode">ABC123</div>
+                  <div class="rc-sub">You are in the room</div>
+                </div>
+
+                <div class="room-controls" style="margin-top:20px;">
+                  <div class="room-controls-title">
+                    <i data-lucide="zap"></i>
+                    Quick Actions
+                  </div>
+                  <div class="room-controls-grid">
+                    <button class="room-ctrl-btn raise-hand-btn" id="studentRaiseHandBtn" onclick="toggleStudentRaiseHand()">
+                      <i data-lucide="hand"></i>
+                      Raise Hand
+                    </button>
+                  </div>
+                </div>
+
+                <h2 class="sec" style="margin-top:24px;">Students Joined</h2>
+                <div class="sgrid" id="s-joinedStudents">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+
+              <div class="chat-card">
+                <div class="chat-hdr">
+                  <div class="chat-hdr-left">
+                    <div class="livdot"></div>
+                    Chat
+                  </div>
+                </div>
+                <div class="chat-msgs" id="s-chatMessages">
+                  <!-- Dynamically populated -->
+                </div>
+                <div class="chat-emoji">
+                  <button onclick="sendEmoji('👍')">👍</button>
+                  <button onclick="sendEmoji('🎉')">🎉</button>
+                  <button onclick="sendEmoji('🚀')">🚀</button>
+                  <button onclick="sendEmoji('💯')">💯</button>
+                  <button onclick="sendEmoji('👏')">👏</button>
+                </div>
+                <div class="chat-input">
+                  <input type="text" placeholder="Type a message..." id="s-chatInput">
+                  <button onclick="sendStudentChat()">
+                    <i data-lucide="send"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Leaderboard Tab -->
+        <div id="s-leaderboard" class="hidden">
+          <h2 class="sec">Leaderboard</h2>
+          <div id="student-leaderboard-list">
+            <!-- Dynamically populated from actual registered students -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Bottom Nav -->
+    <div class="mobile-nav">
+      <button class="mnb on" onclick="setStudentTab('home')">
+        <i data-lucide="home"></i>
+        Home
+      </button>
+      <button class="mnb" onclick="setStudentTab('parts')">
+        <i data-lucide="package"></i>
+        Parts
+      </button>
+      <button class="mnb" onclick="setStudentTab('room')">
+        <i data-lucide="gamepad-2"></i>
+        Room
+      </button>
+      <button class="mnb" onclick="setStudentTab('leaderboard')">
+        <i data-lucide="trophy"></i>
+        Leaderboard
+      </button>
+    </div>
+  </div>
+
+  <!-- Quiz Player Screen -->
+  <div id="sc-qplayer" class="screen hidden" style="padding:0;justify-content:flex-start;align-items:stretch;z-index: 10;">
+    <div class="game-topbar" style="background:var(--surf2);border-bottom:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;padding:12px 24px;position:sticky;top:0;width:100%;">
+      <button class="btn btn-ghost btn-sm" onclick="exitQuizPlayer()">
+        <i data-lucide="arrow-left"></i> Exit
+      </button>
+      <div class="game-title-bar" style="text-align:center;">
+        <span id="qp-quiz-title" style="font-weight:700;font-size:1.1rem;color:var(--txth);">Quiz Playing</span>
+        <span id="qp-quiz-type" class="cbadge bq" style="margin-left:8px;vertical-align:middle;">Pre-Test</span>
+      </div>
+      <div id="qp-overall-timer" class="game-timer-box" style="display:flex;align-items:center;gap:8px;font-family:Lexend,sans-serif;font-weight:700;background:rgba(122,162,247,.1);padding:6px 12px;border-radius:20px;border:1px solid var(--bdr2);">
+        <i data-lucide="clock" style="width:16px;height:16px;color:var(--amber);"></i>
+        <span id="qp-overall-time">--:--</span>
+      </div>
+    </div>
+    
+    <div class="main-content" style="max-width:800px;margin:32px auto;padding:0 24px;width:100%;">
+      <!-- Progress Bar for quiz questions -->
+      <div style="margin-bottom:24px;">
+        <div style="display:flex;justify-content:space-between;font-size:.85rem;color:var(--txt2);margin-bottom:8px;">
+          <span id="qp-question-progress">Question 1 of 10</span>
+          <span id="qp-question-timer" style="font-weight:700;color:var(--coral);">Timer: --s</span>
+        </div>
+        <div class="qpwrap" style="background:var(--surf2);height:8px;border-radius:4px;overflow:hidden;position:relative;">
+          <div id="qp-progress-fill" style="background:var(--leaf);height:100%;width:10%;transition:width 0.3s ease;"></div>
+          <!-- Question timer overlay bar -->
+          <div id="qp-question-timer-fill" style="background:var(--coral);height:3px;width:100%;position:absolute;bottom:0;left:0;transition:width 1s linear;"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div id="qp-card" class="card" style="background:var(--surf);border:1px solid var(--bdr);padding:32px;border-radius:var(--rlg);box-shadow:var(--sh);">
+        <!-- Populated dynamically -->
+      </div>
+
+      <!-- Controls -->
+      <div style="display:flex;justify-content:space-between;margin-top:24px;">
+        <button id="qp-prev-btn" class="btn btn-ghost" onclick="prevQuizQuestion()" style="visibility:hidden;">
+          <i data-lucide="chevron-left"></i> Previous
+        </button>
+        <button id="qp-next-btn" class="btn btn-g" onclick="nextQuizQuestion()">
+          Next <i data-lucide="chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz Score/Review Screen -->
+  <div id="sc-qscore" class="screen hidden" style="justify-content:center;align-items:center;padding:24px;z-index: 10;">
+    <div class="auth-box" style="max-width:600px;width:100%;background:var(--surf);padding:32px;border-radius:var(--rlg);border:1px solid var(--bdr);text-align:center;box-shadow:var(--sh2);">
+      <div id="qs-icon" style="font-size:4.5rem;margin-bottom:16px;">🎉</div>
+      <h2 id="qs-headline" style="margin-bottom:8px;">Quiz Completed!</h2>
+      <p id="qs-quiz-title" style="color:var(--txt2);font-weight:600;margin-bottom:24px;">Science Fundamentals - Post-Test</p>
+      
+      <div id="qs-score-container" style="margin-bottom:32px;">
+        <div style="font-size:.9rem;color:var(--txt3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Your Score</div>
+        <div id="qs-score" style="font-family:Lexend,sans-serif;font-size:3.5rem;font-weight:800;color:var(--leaf);line-height:1;">8 / 10</div>
+        <div id="qs-percentage" style="font-size:1.1rem;color:var(--txt2);margin-top:8px;font-weight:600;">80% (Passed)</div>
+      </div>
+
+      <!-- Review Section -->
+      <div id="qs-review-container" style="text-align:left;max-height:250px;overflow-y:auto;background:var(--surf2);padding:16px;border-radius:var(--r);border:1px solid var(--bdr);margin-bottom:24px;display:none;width:100%;">
+        <h4 style="margin-bottom:12px;color:var(--txth);">Review Answers</h4>
+        <div id="qs-review-list" style="display:flex;flex-direction:column;gap:12px;">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;justify-content:center;width:100%;">
+        <button class="btn btn-g" onclick="exitQuizPlayer()">Back to Dashboard</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Part Modal -->
+  <div class="modal-overlay hidden" id="partModal">
+    <div class="modal-content auth-content">
+      <div class="modal-header">
+        <h2 id="partModalTitle">Add New Part</h2>
+        <button class="close-btn" onclick="closePartModal()">✕</button>
+      </div>
+      <div class="auth-form">
+        <label class="lbl">Part Title</label>
+        <input class="inp" id="pt-title" placeholder="e.g. Part 4">
+        <label class="lbl">Subtitle</label>
+        <input class="inp" id="pt-subtitle" placeholder="e.g. Molecular Biology">
+        <label class="lbl">Description</label>
+        <textarea class="inp" id="pt-desc" rows="3" placeholder="Brief overview of lessons..."></textarea>
+        <div class="schedule-box">
+          <label class="schedule-toggle-row">
+            <span class="lbl" style="margin:0;">Lock This Part</span>
+            <input type="checkbox" id="pt-lock-toggle">
+          </label>
+          <label class="lbl">Auto Unlock Date & Time</label>
+          <input class="inp" type="datetime-local" id="pt-unlock-at">
+        </div>
+        <button class="btn btn-g mt2" id="partModalSaveBtn" onclick="addNewPart()">Save Part</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Comic Modal -->
+  <div class="modal-overlay hidden" id="comicModal">
+    <div class="modal-content auth-content" style="max-width: 980px;">
+      <div class="modal-header">
+        <h2>Create Comic</h2>
+        <button class="close-btn" onclick="closeModal('comicModal')">✕</button>
+      </div>
+      <div class="auth-form comic-editor-form" style="height: 680px; display:flex; flex-direction:column;">
+        <div class="comic-editor-shell">
+          <div class="comic-editor-column comic-editor-left">
+            <div class="comic-panel-card">
+              <div class="comic-panel-header">
+                <h4>Pages</h4>
+                <div class="comic-panel-actions">
+                  <button class="btn btn-g btn-sm" type="button" onclick="addComicPageEditor()">+ Add page</button>
+                </div>
+              </div>
+              <div id="cm-upload-zone" class="comic-upload-dropzone" onclick="document.getElementById('cm-multi-file-input').click()" ondragover="handleComicUploadDrag(event)" ondragleave="handleComicUploadLeave(event)" ondrop="handleComicUploadDrop(event)">
+                <div class="comic-upload-dropzone-inner">
+                  <i data-lucide="upload-cloud" style="width:26px;height:26px;color:var(--sky);"></i>
+                  <div style="text-align:left;">
+                    <strong style="display:block;color:var(--txth);">Drag & drop images to add pages</strong>
+                    <span style="color:var(--txt3);font-size:0.95rem;">Multi-select and reorder pages quickly.</span>
+                  </div>
+                </div>
+                <input type="file" id="cm-multi-file-input" accept="image/*" multiple onchange="handleComicUploadInput(event)" style="display:none;">
+              </div>
+              <div id="cm-pages-editor" class="comic-pages-editor">
+                <!-- Dynamic page edit cards -->
+              </div>
+            </div>
+          </div>
+
+          <div class="comic-editor-column comic-editor-right">
+            <div class="comic-panel-card">
+              <div class="comic-panel-header">
+                <h4>Preview</h4>
+                <span id="cm-last-saved" class="comic-last-saved">Draft not saved</span>
+              </div>
+              <div id="cm-preview-panel" class="comic-preview-panel">
+                <div class="comic-preview-empty">Select a page to preview</div>
+              </div>
+            </div>
+
+            <div class="comic-panel-card">
+              <div class="comic-panel-header">
+                <h4>Details</h4>
+              </div>
+              <div class="comic-page-details">
+                <label class="lbl">Comic Title</label>
+                <input class="inp" id="cm-title" placeholder="e.g. Adventures of Dan DNA">
+                <label class="lbl">Description</label>
+                <input class="inp" id="cm-desc" placeholder="e.g. Journey inside chromosomes">
+                <label class="lbl">Assign to Part</label>
+                <select class="inp" id="cm-part" style="background:var(--surf2);color:var(--txt);border:1px solid var(--bdr);height:40px;width:100%;border-radius:var(--rsm);padding:0 12px;margin-bottom:12px;">
+                  <!-- Dynamically populated options -->
+                </select>
+                <div class="schedule-box">
+                  <label class="schedule-toggle-row">
+                    <span class="lbl" style="margin:0;">Lock This Comic</span>
+                    <input type="checkbox" id="cm-lock-toggle">
+                  </label>
+                  <label class="lbl">Auto Unlock Date & Time</label>
+                  <input class="inp" type="datetime-local" id="cm-unlock-at">
+                </div>
+                <div id="cm-publish-checklist" class="comic-checklist"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comic-footer-actions">
+          <button class="btn btn-ghost btn-sm" type="button" onclick="saveComicDraft()">Save Draft</button>
+          <button class="btn btn-g" style="width:100%;" type="button" onclick="saveComic()">Add page</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Type Selection Modal -->
+  <div class="modal-overlay hidden" id="gameTypeModal">
+    <div class="modal-content auth-content" style="max-width: 700px;">
+      <div class="modal-header">
+        <h2>Select Game Type</h2>
+        <button class="close-btn" onclick="closeGameTypeModal()">✕</button>
+      </div>
+      <div class="role-options" id="game-type-options" style="gap: 16px;">
+        <div class="role-card" onclick="selectGameType('jigsaw')" style="cursor: pointer;">
+          <div class="role-icon" style="background:linear-gradient(135deg,rgba(122,162,247,.2),rgba(122,162,247,.1));border:2px solid rgba(122,162,247,.3);">
+            <i data-lucide="puzzle" style="width:48px;height:48px;color:var(--leaf);"></i>
+          </div>
+          <h3>Jigsaw Puzzle</h3>
+          <p>Create an interactive puzzle for students to solve</p>
+        </div>
+        <div class="role-card" onclick="selectGameType('word-search')" style="cursor: pointer;">
+          <div class="role-icon" style="background:linear-gradient(135deg,rgba(168,199,250,.2),rgba(168,199,250,.1));border:2px solid rgba(168,199,250,.3);">
+            <i data-lucide="type" style="width:48px;height:48px;color:var(--sky);"></i>
+          </div>
+          <h3>Word Search</h3>
+          <p>Hide key vocabulary words in a grid</p>
+        </div>
+        <div class="role-card" onclick="selectGameType('cryptogram')" style="cursor: pointer;">
+          <div class="role-icon" style="background:linear-gradient(135deg,rgba(74,136,240,.2),rgba(74,136,240,.1));border:2px solid rgba(74,136,240,.3);">
+            <i data-lucide="key" style="width:48px;height:48px;color:var(--amber);"></i>
+          </div>
+          <h3>Cryptogram</h3>
+          <p>Encrypt a secret phrase for students to decode</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz Type Selection Modal -->
+  <div class="modal-overlay hidden" id="quizTypeModal">
+    <div class="modal-content auth-content" style="max-width: 700px;">
+      <div class="modal-header">
+        <h2>Select Quiz Type</h2>
+        <button class="close-btn" onclick="closeQuizTypeModal()">✕</button>
+      </div>
+      <div class="role-options" id="quiz-type-options" style="gap: 16px;">
+        <div class="role-card" onclick="selectQuizType('Pre-Test')" style="cursor: pointer;">
+          <div class="role-icon" style="background:linear-gradient(135deg,rgba(168,199,250,0.2),rgba(168,199,250,0.1));border:2px solid rgba(168,199,250,0.3);">
+            <i data-lucide="book-open-check" style="width:48px;height:48px;color:var(--sky);"></i>
+          </div>
+          <h3>Pre-Test</h3>
+          <p>Quiz before the lesson (multiple choice)</p>
+        </div>
+        <div class="role-card" onclick="selectQuizType('Post-Test')" style="cursor: pointer;">
+          <div class="role-icon" style="background:linear-gradient(135deg,rgba(122,162,247,0.2),rgba(122,162,247,0.1));border:2px solid rgba(122,162,247,0.3);">
+            <i data-lucide="book-check" style="width:48px;height:48px;color:var(--leaf);"></i>
+          </div>
+          <h3>Post-Test</h3>
+          <p>Quiz after the lesson (multiple choice)</p>
+        </div>
+        <div class="role-card" onclick="selectQuizType('Survey Questionnaire')" style="cursor: pointer;">
+          <div class="role-icon" style="background:linear-gradient(135deg,rgba(74,136,240,0.2),rgba(74,136,240,0.1));border:2px solid rgba(74,136,240,0.3);">
+            <i data-lucide="clipboard-list" style="width:48px;height:48px;color:var(--amber);"></i>
+          </div>
+          <h3>Survey Questionnaire</h3>
+          <p>Student feedback and comments</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz Edit Choice Modal -->
+  <div class="modal-overlay hidden" id="quizEditChoiceModal">
+    <div class="modal-content auth-content" style="max-width:700px;">
+      <div class="modal-header">
+        <h2 id="quizEditChoiceTitle">Edit Quiz</h2>
+        <button class="close-btn" onclick="closeQuizEditChoiceModal()">✕</button>
+      </div>
+      <div class="role-options" style="gap:18px;padding:18px;">
+        <div class="role-card" onclick="chooseEditSettings()" style="cursor:pointer;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;">
+          <div class="role-icon" style="background:linear-gradient(135deg,rgba(168,199,250,0.12),rgba(168,199,250,0.06));border:1px dashed rgba(168,199,250,0.25);padding:18px;border-radius:12px;">
+            <i data-lucide="settings" style="width:38px;height:38px;color:var(--sky);"></i>
+          </div>
+          <h3 style="margin-top:12px;">Edit Settings</h3>
+          <p style="color:var(--txt3);text-align:center;">Change quiz title, type, schedule and lock settings</p>
+        </div>
+        <div class="role-card" onclick="chooseEditQuestions()" style="cursor:pointer;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;">
+          <div class="role-icon" style="background:linear-gradient(135deg,rgba(122,162,247,0.12),rgba(122,162,247,0.06));border:1px dashed rgba(122,162,247,0.25);padding:18px;border-radius:12px;">
+            <i data-lucide="file-text" style="width:38px;height:38px;color:var(--leaf);"></i>
+          </div>
+          <h3 style="margin-top:12px;">Edit Questions</h3>
+          <p style="color:var(--txt3);text-align:center;">Add, remove or modify the quiz questions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Generic Confirm Modal -->
+  <div class="modal-overlay hidden" id="confirmModal">
+    <div class="modal-content auth-content" style="max-width:480px;">
+      <div class="modal-header">
+        <h2>Confirm</h2>
+        <button class="close-btn" onclick="document.getElementById('confirmCancelBtn').click()">✕</button>
+      </div>
+      <div class="auth-form" style="padding:18px;">
+        <p id="confirmModalMessage" style="color:var(--txt);font-size:1rem;margin-bottom:20px;"></p>
+        <textarea id="confirmModalInput" class="inp" style="display:none;width:100%;min-height:110px;resize:vertical;margin-bottom:16px;" placeholder="Type here..."></textarea>
+        <div style="display:flex;gap:12px;justify-content:flex-end;">
+          <button class="btn btn-ghost" id="confirmCancelBtn">Cancel</button>
+          <button class="btn btn-danger" id="confirmOkBtn">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Game Modal -->
+  <div class="modal-overlay hidden" id="gameModal">
+    <div class="modal-content auth-content" style="max-width: 700px;">
+      <div class="modal-header">
+        <h2 id="gameModalTitle">Create Game</h2>
+        <button class="close-btn" onclick="closeGameModal()">✕</button>
+      </div>
+      <div class="auth-form" style="max-height: 600px; overflow-y: auto; padding: 24px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+          <div>
+            <label class="lbl">Game Title</label>
+            <input class="inp" id="gm-title" placeholder="e.g. Cell Puzzle Challenge">
+          </div>
+          <div>
+            <label class="lbl">Assign to Part</label>
+            <select class="inp" id="gm-part" style="background:var(--surf2);color:var(--txt);border:1px solid var(--bdr);height:46px;width:100%;border-radius:var(--rsm);padding:0 12px;">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label class="lbl">Description</label>
+          <input class="inp" id="gm-desc" placeholder="e.g. Practice key concepts through a game">
+        </div>
+
+        <div style="margin-bottom: 20px; display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:16px;">
+          <div>
+            <label class="lbl">Levels</label>
+            <select class="inp" id="gm-level" onchange="renderGameLevelSetup()" style="background:var(--surf);color:var(--txt);border:1px solid var(--bdr);height:46px;width:100%;border-radius:var(--rsm);padding:0 12px;">
+              <option value="1">Level 1</option>
+              <option value="2">Level 2</option>
+              <option value="3">Level 3</option>
+              <option value="4">Level 4</option>
+              <option value="5">Level 5</option>
+              <option value="6">Level 6</option>
+              <option value="7">Level 7</option>
+              <option value="8">Level 8</option>
+              <option value="9">Level 9</option>
+              <option value="10">Level 10</option>
+            </select>
+          </div>
+          <div>
+            <label class="lbl">Duration (minutes)</label>
+            <input class="inp" id="gm-duration" type="number" min="0" step="1" placeholder="Optional" style="background:var(--surf);color:var(--txt);border:1px solid var(--bdr);height:46px;width:100%;border-radius:var(--rsm);padding:0 12px;">
+          </div>
+        </div>
+        <div id="gm-level-setup-container" class="game-settings-box hidden" style="background: var(--surf2); padding: 18px; border-radius: var(--r); border: 1px solid var(--bdr); margin-bottom: 20px;"></div>
+
+        <div class="schedule-box" style="margin-bottom: 20px;">
+          <label class="schedule-toggle-row">
+            <span class="lbl" style="margin:0;">Lock This Game</span>
+            <input type="checkbox" id="gm-lock-toggle">
+          </label>
+          <label class="lbl">Auto Unlock Date & Time</label>
+          <input class="inp" type="datetime-local" id="gm-unlock-at">
+        </div>
+
+        <div id="gm-jigsaw-settings" class="game-settings-box" style="background: var(--surf2); padding: 20px; border-radius: var(--r); border: 1px solid var(--bdr);">
+          <h4 class="game-settings-title" style="margin-top: 0; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="puzzle" style="width: 20px; height: 20px; color: var(--leaf);"></i>
+            Jigsaw Puzzle Setup
+          </h4>
+          <div style="padding:12px 10px;margin-bottom:8px;border-radius:8px;background:rgba(0,0,0,0.02);border:1px dashed var(--bdr);">
+            <small style="color:var(--txt3);">Note: Puzzle pieces and image are configured per level above.</small>
+          </div>
+        </div>
+
+        <div id="gm-word-search-settings" class="game-settings-box hidden" style="background: var(--surf2); padding: 20px; border-radius: var(--r); border: 1px solid var(--bdr);">
+          <h4 class="game-settings-title" style="margin-top: 0; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="type" style="width: 20px; height: 20px; color: var(--sky);"></i>
+            Word Search Setup
+          </h4>
+          <div style="padding:12px 10px;margin-bottom:8px;border-radius:8px;background:rgba(0,0,0,0.02);border:1px dashed var(--bdr);">
+            <small style="color:var(--txt3);">Note: Grid size and word list are configured per level above.</small>
+          </div>
+        </div>
+
+        <div id="gm-cryptogram-settings" class="game-settings-box hidden" style="background: var(--surf2); padding: 20px; border-radius: var(--r); border: 1px solid var(--bdr);">
+          <h4 class="game-settings-title" style="margin-top: 0; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="key" style="width: 20px; height: 20px; color: var(--amber);"></i>
+            Cryptogram Setup
+          </h4>
+          <div style="padding:12px 10px;margin-bottom:8px;border-radius:8px;background:rgba(0,0,0,0.02);border:1px dashed var(--bdr);">
+            <small style="color:var(--txt3);">Note: Secret phrase and hint are configured per level above.</small>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px;">
+          <button class="btn btn-g" style="width:100%;" id="gameModalSaveBtn" onclick="saveGame()">
+            <i data-lucide="save"></i> Save Game
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay hidden" id="gamePreviewModal">
+    <div class="modal-content auth-content" style="max-width: 620px;">
+      <div class="modal-header">
+        <h2 id="gamePreviewTitle">Game Preview</h2>
+        <button class="close-btn" onclick="closeModal('gamePreviewModal')">✕</button>
+      </div>
+      <div class="auth-form" id="gamePreviewBody" style="max-height: 500px; overflow-y:auto;">
+        <!-- Dynamic preview -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Comic Reader Screen -->
+  <div id="sc-comic-reader" class="screen hidden" style="position:fixed;inset:0;overflow:hidden;padding:0;justify-content:flex-start;align-items:stretch;z-index:9999;background:var(--bg);">
+    <div class="game-topbar" style="background:var(--surf2);border-bottom:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;padding:12px 24px;position:sticky;top:0;width:100%;z-index:10;">
+      <button class="btn btn-ghost btn-sm" onclick="exitComicReader()">
+        <i data-lucide="arrow-left"></i> Close
+      </button>
+      <div style="text-align:center;display:flex;flex-direction:column;gap:4px;">
+        <span id="cr-comic-title" style="font-weight:700;font-size:1.1rem;color:var(--txth);">Comic Name</span>
+        <span id="cr-page-indicator" style="font-size:0.8rem;color:var(--txt2);">Page 1 of 5</span>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button class="btn btn-ghost btn-sm" onclick="zoomOutComic()" title="Zoom Out">
+          <i data-lucide="zoom-out"></i>
+        </button>
+        <button class="btn btn-ghost btn-sm" onclick="resetZoomComic()" title="Reset Zoom">
+          <i data-lucide="refresh-cw"></i>
+        </button>
+        <button class="btn btn-ghost btn-sm" onclick="zoomInComic()" title="Zoom In">
+          <i data-lucide="zoom-in"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Progress Bar -->
+    <div id="cr-progress-container" style="width:100%;height:8px;background:var(--surf3);border-bottom:1px solid var(--bdr);">
+      <div id="cr-progress-fill" style="height:100%;background:linear-gradient(90deg, var(--leaf), var(--moss));width:0%;transition:width 0.3s ease;"></div>
+    </div>
+    
+    <div class="main-content" style="width:100%;height:100%;max-width:100%;margin:0;padding:0 16px 16px;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;flex:1;overflow:hidden;">
+      <!-- Comic Panel Display Card -->
+      <div class="card" style="background:var(--surf);border:1.5px solid var(--bdr2);padding:16px;border-radius:0;box-shadow:none;text-align:center;width:100%;height:100%;display:flex;flex-direction:column;overflow:hidden;">
+        <div id="cr-panel-image-container" style="background:var(--surf2);border:1px dashed var(--bdr);width:100%;height:calc(100vh - 180px);border-radius:var(--r);display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;">
+          <img id="cr-panel-image" src="" alt="Comic Panel" style="max-width:100%;max-height:100%;object-fit:contain;display:none;transform-origin:center center;transition:transform 0.2s ease;cursor:pointer;" onclick="openComicPageImageFull(this)">
+          <div id="cr-image-placeholder" style="font-size:3rem;opacity:0.2;">📖</div>
+        </div>
+        <div style="padding:0 16px;overflow:auto;max-height:140px;text-align:left;">
+          <p id="cr-panel-text" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;line-height:1.6;color:var(--txt);font-weight:500;margin:0;"></p>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div style="display:flex;justify-content:space-between;width:100%;margin-top:16px;gap:12px;">
+        <button id="cr-prev-btn" class="btn btn-ghost" onclick="prevComicPage()" style="flex:1;">
+          <i data-lucide="arrow-left"></i> Previous
+        </button>
+        <button id="cr-next-btn" class="btn btn-g" onclick="nextComicPage()" style="flex:1;">
+          Next <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="tw"></div>
+
+  <!-- Game Player Screen -->
+  <div id="sc-game-player" class="screen hidden" style="padding:0;justify-content:flex-start;align-items:stretch;z-index:10;">
+    <div class="game-topbar" style="background:var(--surf2);border-bottom:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;padding:12px 24px;position:sticky;top:0;width:100%;">
+      <button class="btn btn-ghost btn-sm" onclick="exitGamePlayer()">
+        <i data-lucide="arrow-left"></i> Close
+      </button>
+      <div style="text-align:center;">
+        <span id="gp-game-title" style="font-weight:700;font-size:1.1rem;color:var(--txth);">Game Name</span>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--surf);border-radius:var(--rsm);border:1px solid var(--bdr);">
+          <i data-lucide="clock" style="width:18px;height:18px;color:var(--leaf);"></i>
+          <span id="gp-timer" style="font-size:0.9rem;color:var(--txt2);font-weight:600;min-width:50px;">00:00</span>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="toggleGameTips()" title="Show tips">
+          <i data-lucide="help-circle"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Time Limit Progress Bar -->
+    <div id="gp-time-progress-container" style="display:none;height:6px;background:var(--surf3);position:sticky;top:56px;width:100%;z-index:5;">
+      <div id="gp-time-progress" style="height:100%;background:linear-gradient(90deg, var(--leaf), var(--moss));width:100%;transition:width 0.1s linear;"></div>
+    </div>
+    
+    <!-- Time Expired Modal -->
+    <div id="gp-time-expired-modal" class="modal hidden">
+      <div class="modal-backdrop" onclick="closeModal('gp-time-expired-modal')"></div>
+      <div class="modal-box" style="max-width:400px;">
+        <h3 style="color:var(--txth);margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+          <i data-lucide="alert-circle" style="width:24px;height:24px;color:#ff6b6b;"></i>
+          Time's Up!
+        </h3>
+        <p style="color:var(--txt2);margin-bottom:24px;line-height:1.5;">
+          You've run out of time to complete this game. Your progress has been saved.
+        </p>
+        <p style="color:var(--txt3);font-size:0.9rem;margin-bottom:20px;">
+          To play this game again, ask your teacher for approval to retry.
+        </p>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-ghost" onclick="closeModal('gp-time-expired-modal'); exitGamePlayer();">Go Back</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="main-content" style="max-width:900px;margin:24px auto;padding:0 24px;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;">
+      <!-- Tips Section (Collapsible) -->
+      <div id="gp-tips-section" style="display:none;width:100%;max-width:700px;margin-bottom:20px;padding:16px;background:rgba(138,180,248,0.1);border:1px solid var(--bdr);border-radius:var(--rsm);margin-bottom:20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+          <h4 style="margin:0;font-size:0.95rem;color:var(--txth);display:flex;align-items:center;gap:8px;">
+            <i data-lucide="lightbulb" style="width:18px;height:18px;color:var(--amber);"></i>
+            How to Play
+          </h4>
+          <button class="btn btn-ghost btn-sm" onclick="toggleGameTips()" style="padding:0;width:auto;height:auto;">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div id="gp-tips-content" style="font-size:0.9rem;color:var(--txt2);line-height:1.6;"></div>
+      </div>
+
+      <!-- Game Container -->
+      <div id="gp-game-container" class="card" style="background:var(--surf);border:1.5px solid var(--bdr2);padding:24px;border-radius:var(--rlg);box-shadow:var(--sh2);width:100%;max-width:700px;">
+        <!-- Word Search Game -->
+        <div id="gp-word-search-container" style="display:none;">
+          <h3 id="gp-ws-title" style="margin-bottom:12px;font-size:1.1rem;color:var(--txth);">Find the Hidden Words</h3>
+          <p id="gp-ws-description" style="margin-bottom:20px;font-size:0.95rem;color:var(--txt2);"></p>
+          <div id="gp-ws-grid" style="display:grid;gap:4px;margin-bottom:24px;justify-content:center;"></div>
+          <div style="margin-bottom:24px;padding:16px;background:var(--surf2);border-radius:var(--rsm);border:1px solid var(--bdr);">
+            <p style="font-size:0.9rem;color:var(--txt2);margin-bottom:12px;">Words to find:</p>
+            <div id="gp-ws-words" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
+          </div>
+        </div>
+
+        <!-- Jigsaw Game -->
+        <div id="gp-jigsaw-container" style="display:none;">
+          <!-- Progress Status Bar -->
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px;padding:12px 16px;background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rsm);">
+            <div style="display:flex;gap:16px;flex-wrap:wrap;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <i data-lucide="clock" style="width:18px;height:18px;color:var(--leaf);"></i>
+                <span id="gp-jigsaw-time" style="font-weight:600;color:var(--txt);">00:00</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <i data-lucide="move" style="width:18px;height:18px;color:var(--sky);"></i>
+                <span id="gp-jigsaw-moves" style="font-weight:600;color:var(--txt);">0 moves</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div id="gp-jigsaw-progress-bar" style="width:120px;height:8px;background:var(--surf3);border-radius:4px;overflow:hidden;">
+                <div id="gp-jigsaw-progress-fill" style="height:100%;background:linear-gradient(90deg, var(--leaf), var(--moss));width:0%;transition:width 0.3s ease;"></div>
+              </div>
+              <span id="gp-jigsaw-progress-text" style="font-weight:600;color:var(--txt2);">0%</span>
+            </div>
+          </div>
+          
+          <h3 id="gp-jigsaw-title" style="margin-bottom:12px;font-size:1.1rem;color:var(--txth);">Complete the Puzzle</h3>
+          <p id="gp-jigsaw-description" style="margin-bottom:20px;font-size:0.95rem;color:var(--txt2);"></p>
+          
+          <!-- Controls -->
+          <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+            <button class="btn btn-ghost btn-sm" onclick="jigsawShuffle()" style="padding:8px 12px;" aria-label="Shuffle puzzle pieces (S)" title="Shuffle puzzle pieces (S)">
+              <i data-lucide="shuffle" style="width:16px;height:16px;"></i> Shuffle
+            </button>
+            <button class="btn btn-ghost btn-sm" onclick="jigsawHint()" style="padding:8px 12px;" aria-label="Get a hint (H)" title="Get a hint (H)">
+              <i data-lucide="lightbulb" style="width:16px;height:16px;"></i> Hint (<span id="gp-jigsaw-hints-left">3</span>)
+            </button>
+            <button class="btn btn-ghost btn-sm" id="gp-jigsaw-preview-btn" onclick="jigsawTogglePreview()" style="padding:8px 12px;" aria-label="Toggle preview (P)" title="Toggle preview (P)">
+              <i data-lucide="image" style="width:16px;height:16px;"></i> Show Preview
+            </button>
+            <button class="btn btn-ghost btn-sm" onclick="jigsawReset()" style="padding:8px 12px;" aria-label="Reset puzzle (R)" title="Reset puzzle (R)">
+              <i data-lucide="refresh-cw" style="width:16px;height:16px;"></i> Reset
+            </button>
+          </div>
+          
+          <!-- Preview Reference Image -->
+          <div id="gp-jigsaw-preview-container" style="display:none;margin-bottom:20px;text-align:center;">
+            <img id="gp-jigsaw-reference" src="" alt="Puzzle Reference" style="max-width:200px;max-height:150px;border-radius:8px;border:2px solid var(--bdr);">
+          </div>
+          
+          <!-- Game Area -->
+          <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+            <!-- Pieces Container -->
+            <div style="flex:1;min-width:280px;max-width:400px;">
+              <p style="font-size:0.85rem;color:var(--txt3);margin-bottom:8px;display:flex;align-items:center;gap:8px;">
+                <i data-lucide="grid-3x3" style="width:16px;height:16px;"></i>
+                Puzzle Pieces (<span id="gp-jigsaw-pieces-left">0</span> left)
+              </p>
+              <div id="gp-jigsaw-pieces" class="jigsaw-pieces-container" style="display:flex;flex-wrap:wrap;gap:8px;padding:12px;background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rsm);min-height:150px;justify-content:center;align-items:flex-start;"></div>
+            </div>
+            
+            <!-- Puzzle Board with Blurred Preview -->
+            <div style="flex:1;min-width:280px;max-width:400px;">
+              <p style="font-size:0.85rem;color:var(--txt3);margin-bottom:8px;display:flex;align-items:center;gap:8px;">
+                <i data-lucide="square" style="width:16px;height:16px;"></i>
+                Puzzle Board
+              </p>
+              <div style="position:relative;">
+                <!-- Blurred Background Preview -->
+                <img id="gp-jigsaw-bg-preview" src="" alt="" style="position:absolute;inset:0;opacity:0.15;filter:blur(8px);width:100%;height:100%;object-fit:cover;pointer-events:none;border-radius:var(--rsm);">
+                <!-- Puzzle Board -->
+                <div id="gp-jigsaw-board" class="jigsaw-board" style="position:relative;background:transparent;border:2px dashed var(--bdr);border-radius:var(--rsm);overflow:hidden;z-index:1;"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Piece Tracker -->
+          <div style="margin-top:16px;padding:12px;background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rsm);text-align:center;">
+            <span id="gp-jigsaw-piece-tracker" style="font-weight:600;color:var(--txt2);">0 pieces · 0 placed · 0 remaining</span>
+          </div>
+        </div>
+
+        <!-- Cryptogram Game -->
+        <div id="gp-cryptogram-container" style="display:none;">
+          <h3 id="gp-crypto-title" style="margin-bottom:12px;font-size:1.1rem;color:var(--txth);">Decode the Secret Message</h3>
+          <p id="gp-crypto-description" style="margin-bottom:20px;font-size:0.95rem;color:var(--txt2);"></p>
+          <div id="gp-crypto-phrase-display" style="background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rsm);padding:20px;margin-bottom:20px;text-align:left;"></div>
+          <div style="background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rsm);padding:16px;margin-bottom:20px;">
+            <p style="font-size:0.85rem;color:var(--txt3);margin-bottom:12px;">Cipher Key (Click letters to swap):</p>
+            <div id="gp-crypto-key" class="crypto-key" style="display:grid;grid-template-columns:repeat(13,1fr);gap:6px;margin-bottom:16px;"></div>
+            <p style="font-size:0.9rem;color:var(--txt2);margin-bottom:8px;">Hint:</p>
+            <p id="gp-crypto-hint" style="font-size:0.95rem;color:var(--txt2);"></p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn-ghost" onclick="resetCryptogram()" style="padding:8px 16px;">
+              <i data-lucide="refresh-cw" style="width:16px;height:16px;"></i> Reset
+            </button>
+            <button class="btn btn-ghost" onclick="showHint()" style="padding:8px 16px;">
+              <i data-lucide="lightbulb" style="width:16px;height:16px;"></i> Give Hint
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div id="gp-controls" style="display:flex;justify-content:center;gap:12px;margin-top:24px;width:100%;max-width:700px;">
+        <button id="gp-exit-btn" class="btn btn-ghost" onclick="exitGamePlayer()">
+          <i data-lucide="x"></i> Exit Game
+        </button>
+        <button id="gp-submit-btn" class="btn btn-g" onclick="submitGameAnswer()" style="margin-left:auto;">
+          <i data-lucide="check"></i> Submit
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Comic Image Preview Modal -->
+  <div class="modal-overlay hidden" id="fullscreen-image-modal" style="background:rgba(0,0,0,0.95);display:flex;align-items:stretch;justify-content:center;padding:0;">
+    <button class="close-btn" onclick="closeFullscreenImageModal()" style="position:fixed;top:24px;right:24px;z-index:1000;background:var(--bg);border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
+      <i data-lucide="x"></i>
+    </button>
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:100%;max-height:100%;width:100%;height:100%;align-items:center;justify-content:center;padding:24px;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center;width:100%;">
+        <button class="btn btn-ghost btn-sm" onclick="fullscreenPrevComic()">
+          <i data-lucide="chevron-left"></i>
+        </button>
+        <button class="btn btn-g btn-sm" onclick="zoomOutFullscreenImage()">
+          <i data-lucide="zoom-out"></i>
+        </button>
+        <button class="btn btn-ghost btn-sm" onclick="resetFullscreenImageZoom()">
+          <i data-lucide="refresh-cw"></i>
+        </button>
+        <button class="btn btn-g btn-sm" onclick="zoomInFullscreenImage()">
+          <i data-lucide="zoom-in"></i>
+        </button>
+        <button class="btn btn-ghost btn-sm" onclick="fullscreenNextComic()">
+          <i data-lucide="chevron-right"></i>
+        </button>
+      </div>
+      <div id="fullscreen-page-indicator" style="color:var(--txt2);font-size:0.95rem;min-height:22px;"></div>
+      <div style="flex:1;display:flex;justify-content:center;align-items:center;width:100%;max-width:100%;overflow:hidden;">
+        <img id="fullscreen-image" src="" alt="Fullscreen Preview" style="max-width:100%;max-height:100%;object-fit:contain;transform-origin:center center;transition:transform 0.3s ease;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Student Progress Review Modal -->
+  <div class="modal-overlay hidden" id="studentReviewModal">
+    <div class="modal-content auth-content" style="max-width:800px; width:90vw;">
+      <div class="modal-header">
+        <h2 id="studentReviewModalTitle">Student Progress Review</h2>
+        <button class="close-btn" onclick="closeModal('studentReviewModal')">✕</button>
+      </div>
+      <div class="auth-form" style="max-height:80vh; overflow-y:auto; padding:20px;">
+        <div id="student-review-info" style="margin-bottom:20px; padding:16px; background:var(--surf2); border-radius:var(--rsm); border:1px solid var(--bdr);">
+          <!-- Dynamically populated student info -->
+        </div>
+        
+        <h3 class="sec" style="font-size:1.15rem; margin-bottom:12px;">Quiz & Survey History</h3>
+        <div id="student-review-attempts-list" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:16px;">
+          <!-- Dynamically populated list of attempts -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz Questions Modal (opens after saving quiz settings) -->
+  <div class="modal-overlay hidden" id="quizQuestionsModal">
+    <div class="modal-content auth-content" style="max-width:900px; width:90vw;">
+      <div class="modal-header">
+        <h2 id="quizQuestionsModalTitle">Create Questions for Quiz</h2>
+        <button class="close-btn" onclick="closeQuizQuestionsModal()">✕</button>
+      </div>
+      <div class="auth-form" style="max-height:80vh; overflow-y:auto; padding:24px;">
+        <h3 class="sec" style="font-size:1.25rem; margin-bottom:16px; display:flex; align-items:center; gap:8px;">
+          <i data-lucide="file-text" style="width:24px; height:24px;"></i> Questions Workspace
+        </h3>
+        
+        <div id="qz-modal-questions-list" style="display:flex; flex-direction:column; gap:18px;">
+          <!-- Dynamic question cards inside this modal -->
+        </div>
+        
+        <div style="display:flex; gap:16px; margin-top:24px; align-items:center;">
+          <button class="btn btn-ghost" type="button" onclick="addQuizQuestionEditor(null, 'qz-modal-questions-list')">
+            <i data-lucide="plus-circle"></i> Add Question
+          </button>
+          <button class="btn btn-g" type="button" onclick="saveQuizQuestionsOnly()" style="margin-left:auto; display:flex; gap:8px; align-items:center;">
+            <i data-lucide="save"></i> Save Questions
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress Detail Modal (Quiz & Comic) -->
+  <div class="modal-overlay hidden" id="progressModal">
+    <div class="modal-content" style="max-width:720px;max-height:85vh;overflow-y:auto;">
+      <div class="modal-header">
+        <div>
+          <h2 id="prog-modal-title" style="margin-bottom:4px;">Quiz Progress</h2>
+          <span id="prog-modal-subtitle" style="font-size:0.82rem;color:var(--txt3);"></span>
+        </div>
+        <button class="close-btn" onclick="closeModal('progressModal')">✕</button>
+      </div>
+      <div id="prog-modal-body">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
